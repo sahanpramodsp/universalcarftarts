@@ -1,0 +1,977 @@
+@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&display=swap');
+
+/* Global Styles */
+:root {
+    --primary-pink: #ff69b4;
+    --primary-black: #1a1a1a;
+    --primary-blue: #4169e1;
+    --light-pink: #ffb6c1;
+    --dark-pink: #ff1493;
+}
+
+body {
+    font-family: 'Playpen Sans', cursive;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1, h2, h3 {
+   
+    font-family: 'Playpen Sans', cursive;
+}
+
+/* Scroll to Top Button */
+.scroll-top-btn {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--primary-pink);
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: none;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.scroll-top-btn:hover {
+    background-color: var(--dark-pink);
+    transform: translateY(-3px);
+}
+a{
+    text-decoration: none;
+}
+/* button primary */
+.btn-primary {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #fd0de9;
+    --bs-btn-border-color: #fd0de9;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #0b5ed7;
+    --bs-btn-hover-border-color: #0a58ca;
+    --bs-btn-focus-shadow-rgb: 49, 132, 253;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #0a58ca;
+    --bs-btn-active-border-color: #0a53be;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #0d6efd;
+    --bs-btn-disabled-border-color: #0d6efd;
+}
+/* Navbar */
+.navbar {
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 20px 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    transition: all 0.3s ease;
+}
+/* Preloader Styling */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f8f9fa; /* Background color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    overflow: hidden;
+}
+
+/* Preloader Logo Styling */
+.logo {
+    width: 150px;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Shine Animation */
+.logo::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 300%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    animation: shine 2s linear infinite;
+}
+
+/* Keyframes for Shine Animation */
+@keyframes shine {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+
+.navbar-brand {
+    font-family: 'Playpen Sans', cursive;
+    font-size: 2rem;
+    font-weight: bold;
+    background: linear-gradient(to right, #ff02c0, #1E90FF); /* Pink to Blue gradient */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* Makes text show gradient */
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover {
+    transform: scale(1.1); /* Slightly enlarge the brand name */
+}
+
+.nav-link {
+    color: #444;
+    font-size: 1.1rem;
+    margin-right: 30px;
+    font-weight: 600;
+    text-transform: capitalize;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #FF69B4; /* Soft pink hover */
+    transform: translateY(-5px); /* Hover lift effect */
+}
+
+.navbar .nav-link.active {
+    color: #FF1493; /* Active link color */
+}
+
+/* Hero Section */
+.hero {
+    min-height: 95vh; /* Reduced height for a more compact hero section */
+    background-image: url('https://blogger.googleusercontent.com/img/a/AVvXsEhn89rgg57QJJeh7aX_yPIQ3SghwAySGmQkNSpuKaEDvCmbbIaWcSbffhOIow6y07B65dAb2Gs6SfC_7ic1p1tQk4y8_CeYTzs6ZyMcr17SFnXNfRfaXK46DIybr601kj9z5BUahaWJ4wJBO2h931UxyaF4aJdTL3GKi6RBsHU_05EJBZEPG3EEexD4rqs=w630-h420'); /* Replace with your image */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    padding: 0 15px; /* Add some padding for smaller screens */
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 105, 180, 0.6); /* Light pink overlay */
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    color: #FFF;
+    z-index: 1;
+    max-width: 800px; /* Restrict content width */
+    padding: 20px;
+    animation: fadeIn 2s ease-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Ensure all content stays centered */
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3rem; /* Larger font for heading */
+    color: #FF1493; /* Strong pink */
+    margin-bottom: 15px;
+    font-family: 'Playpen Sans', cursive;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    animation: slideUp 1.5s ease-out forwards;
+}
+
+.hero p {
+    font-size: 1.2rem; /* Adjusted font size for the paragraph */
+    color: #FFF;
+    max-width: 600px; /* Limit width of paragraph */
+    margin: 0 auto 20px; /* Add bottom margin */
+    line-height: 1.8;
+    opacity: 0.8;
+    animation: fadeIn 2s ease-out 0.5s forwards;
+}
+
+.hero .btn-primary {
+    background-color: #FF69B4; /* Soft pink button */
+    color: white;
+    padding: 12px 40px;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    border: none;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0;
+    animation: bounceIn 1s ease-out 1.5s forwards;
+}
+
+.hero .btn-primary:hover {
+    background-color: #FF1493; /* Darker pink on hover */
+    transform: scale(1.05);
+}
+.hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1; /* Ensure it is above background overlays */
+    position: relative;
+    padding: 20px; /* Optional padding for spacing */
+}
+
+.hero-image img {
+    max-width: 65%; /* Ensure the image is responsive */
+    border-radius: 10px; /* Add rounded corners */
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2); /* Add a subtle shadow for emphasis */
+    animation: fadeIn 2s ease-out; /* Apply animation */
+}
+/* Creative Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+/* Footer Section */
+.footer {
+    background-color: #FF69B4;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+}
+
+.footer p {
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* Mobile/Tablet Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .navbar-brand {
+        font-size: 1.8rem;
+    }
+
+    .nav-link {
+        font-size: 1rem;
+        margin-right: 15px;
+    }
+
+    .hero h1 {
+        font-size: 2rem; /* Adjusted font size for small screens */
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .hero .btn-primary {
+        font-size: 1.1rem;
+        padding: 10px 30px;
+    }
+}
+
+/* Section Styles */
+section {
+    padding: 5rem 0;
+}
+
+.section-title {
+    text-align: center;
+    color: var(--primary-black);
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background-color: var(--primary-pink);
+}
+
+/* About Section */
+.about-section {
+    background-color: #f8f9fa;
+    padding: 4rem 0;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    padding: 0 2rem;
+}
+
+.about-image {
+    width: 50%;
+    overflow: hidden;
+    position: relative;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.about-image:hover {
+    transform: translateY(-10px); /* Slight lift effect */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+.about-image img:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+    filter: brightness(85%); /* Darken image slightly on hover */
+}
+
+.about-text {
+    flex: 1;
+    max-width: 600px;
+}
+
+.about-text h2 {
+    font-size: 2.5rem;
+    color: #333;
+    font-family: 'Lobster', cursive;
+    margin-bottom: 1rem;
+    transition: color 0.3s ease;
+}
+
+.about-text h2:hover {
+    color: #FF1493; /* Hover effect for heading */
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.about-text p:hover {
+    color: #333; /* Slight darkening of paragraph text on hover */
+}
+
+.about-text .btn-primary {
+    background-color: #FF1493;
+    color: white;
+    padding: 12px 35px;
+    font-size: 1.1rem;
+    border-radius: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.about-text .btn-primary:hover {
+    background-color: #ff69b4;
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-image {
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    .about-text {
+        text-align: center;
+        max-width: 90%;
+    }
+
+    .about-text h2 {
+        font-size: 2rem;
+    }
+
+    .about-text p {
+        font-size: 1rem;
+    }
+
+    .about-text .btn-primary {
+        padding: 10px 30px;
+        font-size: 1rem;
+    }
+}
+
+
+/* Portfolio Section */
+.category-filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+    padding: 0 2rem;
+}
+
+.filter-btn {
+    padding: 0.8rem 2rem;
+    border: 2px solid #FF1493; /* Strong pink border */
+    background: transparent;
+    color: #FF1493;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background-color: #FF1493;
+    color: white;
+    transform: scale(1.05); /* Slight scale on hover */
+}
+
+/* Portfolio Items */
+.portfolio-item {
+    margin-bottom: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-10px); /* Lift effect on hover */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Deep shadow effect */
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.15); /* Slight zoom effect */
+    filter: brightness(80%); /* Darken image slightly on hover */
+}
+
+/* Portfolio Overlay */
+.portfolio-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 20, 147, 0.7); /* Semi-transparent pink overlay */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 15px;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+    opacity: 1;
+}
+
+.portfolio-overlay i {
+    font-size: 3rem;
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover .portfolio-overlay i {
+    transform: scale(1.2); /* Slight zoom-in effect for icons */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .category-filters {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .portfolio-item {
+        width: 100%;
+        margin-bottom: 1.5rem;
+    }
+
+    .filter-btn {
+        font-size: 0.9rem;
+        padding: 0.6rem 1.2rem;
+    }
+}
+
+
+/* Contact Section */
+.contact-section {
+    background-color: #f8f9fa;
+    padding: 4rem 2rem;
+}
+
+.contact-info {
+    padding: 2rem;
+    text-align: center;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.contact-item i {
+    color: #FF1493; /* Strong pink color */
+    margin-right: 1rem;
+    font-size: 1.8rem;
+}
+
+.contact-item:hover {
+    transform: translateX(10px); /* Slight move to the right on hover */
+}
+
+.contact-form {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-form .form-control {
+    border: 2px solid #dee2e6;
+    padding: 0.8rem;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.contact-form .form-control:focus {
+    border-color: #FF1493; /* Pink focus border */
+    box-shadow: 0 0 10px rgba(255, 20, 147, 0.2);
+}
+
+.contact-form .form-group label {
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.contact-form .btn-submit {
+    background-color: #FF1493; /* Bright pink */
+    color: white;
+    border: none;
+    padding: 12px 40px;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    width: 100%;
+}
+
+.contact-form .btn-submit:hover {
+    background-color: #FF69B4; /* Lighter pink */
+    transform: scale(1.05);
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.social-link {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FF1493;
+    color: white;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background-color: #FF69B4; /* Lighter pink on hover */
+    transform: translateY(-5px);
+}
+
+/* Creative Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Contact Section Animation */
+.contact-info,
+.contact-form {
+    animation: fadeIn 1s ease-out;
+}
+
+/* Button Hover Effects */
+.btn-submit:active {
+    transform: scale(0.98);
+    background-color: #FF1493;
+}
+
+
+ /* Footer */
+.footer {
+    background: #111; /* Dark background for better contrast */
+    color: #fff; /* White text for readability */
+    padding: 4rem 2rem;
+    text-align: center;
+    position: relative;
+}
+
+.footer-logo {
+    font-family: 'Playpen Sans', cursive;
+    font-size: 3rem;
+    color: #FF1493; /* Bright pink for the logo */
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+}
+
+.footer-logo:hover {
+    color: #ff69b4; /* Slight color change on hover */
+    transform: translateY(-5px); /* Slight lift effect on hover */
+}
+
+.footer-tagline {
+    font-size: 1.3rem;
+    color: #ddd; /* Light gray for the tagline */
+    margin-bottom: 2rem;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.footer-tagline:hover {
+    color: #fff; /* White color on hover */
+    opacity: 1;
+}
+
+.footer-separator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 0;
+    position: relative;
+}
+
+.footer-separator::before,
+.footer-separator::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background-color: #ff1493; /* Pink separator */
+    margin: 0 1rem;
+}
+
+.footer-separator i {
+    color: #ff1493;
+    font-size: 2rem;
+}
+
+.footer-social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.footer-social-link {
+    text-decoration: none;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ff1493; /* Social link background color */
+    color: white;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.footer-social-link:hover {
+    background-color: #ff69b4;
+    transform: scale(1.1); /* Social link hover scale effect */
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    margin-top: 3rem;
+    font-size: 1rem;
+    color: #aaa;
+}
+
+.footer-bottom a {
+    color: #ff1493;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-bottom a:hover {
+    color: #fff; /* White on hover */
+}
+
+/* Media Queries for Mobile */
+@media (max-width: 768px) {
+    .footer-logo {
+        font-size: 2.2rem;
+    }
+
+    .footer-tagline {
+        font-size: 1.1rem;
+    }
+
+    .footer-separator {
+        margin: 1.5rem 0;
+    }
+
+    .footer-social-links {
+        gap: 1rem;
+    }
+
+    .footer-social-link {
+        width: 40px;
+        height: 40px;
+    }
+
+    .footer-bottom {
+        font-size: 0.9rem;
+    }
+}
+
+/* For Webkit-based browsers like Chrome, Safari, Edge */
+::-webkit-scrollbar {
+    width: 12px; /* width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1; /* background of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, rgb(255, 0, 128), blue); /* gradient color from pink to black to blue */
+    border-radius: 10px; /* rounded corners */
+    cursor: pointer;
+}
+
+/* Optional: To add hover effect on scrollbar thumb */
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, blue, rgb(255, 0, 128));
+}
+       /* WhatsApp Button Style */
+.whatsapp-btn {
+    position: fixed;
+    left: 20px; /* Distance from the left side */
+    bottom: 20px; /* Distance from the bottom */
+    background-color: #25D366;
+    color: white;
+    font-size: 30px;
+    width: 60px; /* Fixed width */
+    height: 60px; /* Fixed height */
+    border-radius: 50%; /* Makes the button circular */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centers the icon inside the circle */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* WhatsApp Button Hover Animation */
+.whatsapp-btn:hover {
+    background-color: #128C7E;
+    transform: scale(1.1); /* Slight scaling on hover */
+}
+
+/* WhatsApp Icon Style */
+.whatsapp-btn i {
+    font-size: 30px;
+}
+
+/* Popup Chat Box Style */
+.chat-popup {
+    position: fixed;
+    left: 20px;
+    bottom: 80px; /* Position the popup above the button */
+    width: 300px;
+    background-color: #fff;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    display: none;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+/* Chat Popup Open Animation */
+.chat-popup.open {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Chat Popup Header */
+.chat-popup-header {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Chat Popup Body */
+.chat-popup-body {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Animation Classes */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive Styles */
+@media (max-width: 991.98px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .category-filters {
+        gap: 0.5rem;
+    }
+    
+    .filter-btn {
+        padding: 0.4rem 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    section {
+        padding: 3rem 0;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .contact-info {
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .filter-btn {
+        padding: 0.3rem 0.8rem;
+        font-size: 0.8rem;
+    }
+}
